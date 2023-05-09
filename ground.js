@@ -160,6 +160,12 @@ function init() {
 			groundplane.rotation.x = Math.PI / 2;
 			scene.add(groundplane);
 
+            const groundplane0 = new THREE.Mesh(ground, groundtexture);
+			groundplane0.scale.set(30,30,30);
+			groundplane0.position.set(0,-5.2,0)
+			groundplane0.rotation.x = Math.PI / 2;
+			scene.add(groundplane0);
+
 			const groundplane1 = new THREE.Mesh(ground, groundtexture);
 			groundplane1.scale.set(15,15,15);
 			groundplane1.position.set(0,-5,0)
@@ -173,7 +179,7 @@ function init() {
 			scene.add(groundplane2);
 
 
-            const light = new THREE.PointLight( 0xffffff, 0.1, 20 );
+            const light = new THREE.PointLight( 0xffffff, 0.07, 20 );
             light.position.set( 0, 0, 0 );
             scene.add( light );
 
