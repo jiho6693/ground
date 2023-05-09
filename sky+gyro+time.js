@@ -24,6 +24,7 @@
 				
 				init();
 				animate();
+				onWindowResize();
 
 				
 
@@ -40,7 +41,7 @@
 				const vertices = [];
 				for (let i = 0; i < 15000; i++) {
 				const x = Math.random() * 400 - 300;
-				const y = Math.random() * 500 - 250;
+				const y = Math.random() * 200 - 250;
 				const z = Math.random() * 400 - 200;
 				vertices.push(x, y, z);
 				}
@@ -349,6 +350,17 @@
 
 				scene = new THREE.Scene();
 
+				const textureLoader = new THREE.TextureLoader();
+				const textureBasecolor = textureLoader.load('1.jpeg')
+
+				const ground = new THREE.PlaneGeometry(10, 10);
+				const groundtexture = new THREE.MeshStandardMaterial({
+					map : textureBasecolor
+				});
+				const groundplane = new THREE.Mesh(ground, groundtexture);
+				groundplane.position.x= -1.5;
+				scene.add(groundplane);
+
 
 				renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( window.devicePixelRatio );
@@ -357,6 +369,8 @@
 				renderer.toneMapping = THREE.ACESFilmicToneMapping;
 				renderer.toneMappingExposure = 0.18;
 				document.body.appendChild( renderer.domElement );
+
+
 				
 				
 				fetch(url)
