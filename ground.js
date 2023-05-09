@@ -49,7 +49,7 @@ function rainy() {
     starGeo.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
     let starMaterial = new THREE.PointsMaterial({
         color:0xffffff,
-        size:0.1,
+        size:0.2,
         transparent: true
     })
     const stars = new THREE.Points(starGeo,starMaterial)
@@ -173,16 +173,16 @@ function init() {
 			scene.add(groundplane2);
 
 
-            const light = new THREE.PointLight( 0xff0000, 0.2, 50 );
-            light.position.set( 50, 50, 50 );
+            const light = new THREE.PointLight( 0xffffff, 0.2, 20 );
+            light.position.set( 0, 0, 0 );
             scene.add( light );
 
     renderer = new THREE.WebGLRenderer();
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
     renderer.outputEncoding = THREE.sRGBEncoding;
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 0.18;
+    // renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    // // renderer.toneMappingExposure = 0.18;
     document.body.appendChild( renderer.domElement );
 
 
