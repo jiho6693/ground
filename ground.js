@@ -49,7 +49,7 @@ function rainy() {
     starGeo.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
     let starMaterial = new THREE.PointsMaterial({
         color:0xffffff,
-        size:0.2,
+        size:0.1,
         transparent: true
     })
     const stars = new THREE.Points(starGeo,starMaterial)
@@ -61,7 +61,7 @@ function rainy() {
     const cloudVertices = [];
     loader.load("./smoke.png", function(texture){
 
-        const cloudGeo = new THREE.PlaneGeometry(1000,1000);
+        const cloudGeo = new THREE.PlaneGeometry(800,800);
         const cloudMaterial = new THREE.MeshLambertMaterial({
         map: texture,
         transparent: true
@@ -173,7 +173,7 @@ function init() {
 			scene.add(groundplane2);
 
 
-            const light = new THREE.PointLight( 0xffffff, 0.2, 20 );
+            const light = new THREE.PointLight( 0xffffff, 0.1, 20 );
             light.position.set( 0, 0, 0 );
             scene.add( light );
 
